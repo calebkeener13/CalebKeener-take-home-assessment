@@ -6,7 +6,12 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="front-back">
+            <button class="front active" id="front-button">Front</button>
+            <button class="back" id="back-button">Back</button>
+        </div>
+
+        <div class="card-container" id="front-content">
             <div class="image-section">
                 <img src="images/formal.JPG" alt="Profile Photograph" class="profile-pic">
             </div>
@@ -15,12 +20,57 @@
 
             <div class="information">
                 <h1>Caleb Keener</h1>
-                <div class="facts">
-                    <p>Major: Computer Science</p>
-                    <p>Year: 2nd Year</p>
-                    <p>Hometown: Born in Basel, Switzerland</p>
+
+                <p>Major: Computer Science</p>
+                <p>Year: 2nd Year</p>
+                <p style="padding-bottom: 10px;">Hometown: Born in Basel, Switzerland</p>
+
+                <h2>More Information</h2>
+                <p class="passion">Passion: I am very interested in designing cyber security systems for companies to combat emerging technologies. Especially with the amount of emerging technologies in artificial intelligence and super computing, I believe that we're going to need a revolution in cyber security to keep pace and protect people's information.</p>
+            </div>
+        </div>
+
+        <div class="back-content" id="backContent" style="display: none;">
+            <div class="information">
+                <h2>Click the Button to see a random fact about me!</h2>
+                <button class="randomize" id="randomize">Random Fact</button>
+
+                <div class="randomFact" id="fact">
+
                 </div>
             </div>
         </div>
+
+        <script>
+            const facts = [
+                "I have one dog named Abby.",
+                "I created an Escape Room game using javascript.",
+                "I studied abroad at GTE during the summer of 2024",
+                "My threads at Ga Tech are Intelligence and Information Internetworks",
+                "I have 2 brothers, one older and one younger",
+                "I am interested in pursuing a minor in FinTech"
+            ];
+
+            function generateRandomFact() {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                document.getElementById('fact').innerText = facts[randomIndex];
+            }
+
+            document.getElementById('randomize').addEventListener('click', generateRandomFact);
+
+            document.getElementById('front-button').addEventListener('click', function () {
+                document.getElementById('front-content').style.display = 'grid';
+                document.getElementById('backContent').style.display = 'none';
+                this.classList.add('active');
+                document.getElementById('back-button').classList.remove('active');
+            });
+
+            document.getElementById('back-button').addEventListener('click', function () {
+                document.getElementById('front-content').style.display = 'none';
+                document.getElementById('backContent').style.display = 'grid';
+                this.classList.add('active');
+                document.getElementById('front-button').classList.remove('active');
+            });
+        </script>
     </body>
 </html>
