@@ -1,1 +1,47 @@
+body {
+    background-color: #CBC0D3;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.container {
+    background-color: #8E9AAF;
+    display: grid;
+    grid-template-columns: 2fr 0fr 3fr;
+    width: 50%;
+    height: 50vh;
+    border-radius: 20px;
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.profile-pic {
+    border-radius: 2000px;
+    width: 220px;
+    height: 220px;
+
+}
+
+.image-section {
+    align-content: center;
+    text-align: center;
+}
+
+.information {
+    align-content: center;
+    text-align: center;
+    
+}
+
+.divider {
+    width: 1px;
+    background-color: transparent;
+    border-left: 2px dotted white;
+    height: 95%;
+    align-self: center;
+}
